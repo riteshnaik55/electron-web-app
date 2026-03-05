@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>URL Loader</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background: #0f172a;
+        color: #e5e7eb;
+      }
+      h1 {
+        margin-bottom: 1rem;
+      }
+      form {
+        display: flex;
+        gap: 0.5rem;
+        width: 80%;
+        max-width: 600px;
+      }
+      input[type='text'] {
+        flex: 1;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        border: 1px solid #4b5563;
+        background: #020617;
+        color: #e5e7eb;
+      }
+      button {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        background: #2563eb;
+        color: white;
+        cursor: pointer;
+        font-weight: 500;
+      }
+      button:hover {
+        background: #1d4ed8;
+      }
+      small {
+        margin-top: 0.75rem;
+        color: #9ca3af;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Open a URL</h1>
+    <form id="url-form">
+      <input
+        id="url-input"
+        type="text"
+        placeholder="Enter URL, e.g. https://www.google.com"
+        autocomplete="off"
+      />
+      <button type="submit">Go</button>
+    </form>
+    <small>If you omit the scheme, https:// will be added automatically.</small>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
