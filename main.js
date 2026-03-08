@@ -1,4 +1,15 @@
 const { app, BrowserWindow, session } = require('electron')
+const contextMenu = require('electron-context-menu').default;
+
+contextMenu({
+  showInspectElement: true,
+  showSaveImagesAs: true,
+  showSearchWithGoogle: true,
+  showSaveImage: true,
+  showCopyLink: true,
+  showServices: true,
+  shouldShowMenu: (event, parameters) => !parameters.isEditable
+})
 
 // Chrome-like user agent so sites like WhatsApp Web accept the app (they require "Chrome 85+")
 const CHROME_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
@@ -9,7 +20,8 @@ const createWindow = () => {
     height: 768,
     webPreferences: {
       userAgent: CHROME_USER_AGENT
-    }
+    },
+    icon:'favicon.png'
   })
 
   // Load the URL input page
@@ -44,3 +56,7 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
+const dispose = contextMenu();
+
+dispose();
