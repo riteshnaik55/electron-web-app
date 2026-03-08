@@ -29,6 +29,11 @@ npx electron-forge import
 npm run make
 ```
 
+## Important
+
+If you are publishing, make sure to code sign your app. [Read more](https://www.electronjs.org/docs/latest/tutorial/tutorial-packaging#important-signing-your-code)
+Since this is a personal project, this step is skipped
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
